@@ -59,7 +59,7 @@ let questions = [
       Options = ["4"; "5"; "6"; "Error"]
       CorrectAnswer = "5" }
 
-    { Id = 2
+    { Id = 10
       Text = "What does the gcd function calculate?"
       Options = [] // Written question
       CorrectAnswer = "The greatest common divisor of the a an and to in for on at by with two integers" }
@@ -79,3 +79,28 @@ let questions = [
       Options = [] // Written question
       CorrectAnswer = "Combining pure functions into a complete application can be challenging" }
 ]
+
+let evaluateMultipleChoice (userAnswer: string) (correctAnswer: string) =
+    userAnswer.Trim().Equals(correctAnswer, StringComparison.OrdinalIgnoreCase)
+
+let evaluateWrittenAnswer (userAnswer: string) (correctAnswer: string) =
+    userAnswer.Trim().Equals(correctAnswer, StringComparison.OrdinalIgnoreCase)
+
+let evaluateWrittenAnswerFlexible (userAnswer: string) (correctAnswer: string) =
+    let userAnswerTrimmed = userAnswer.Trim().ToLower()
+    let correctAnswerTrimmed = correctAnswer.Trim().ToLower()
+    userAnswerTrimmed.Contains(correctAnswerTrimmed) || correctAnswerTrimmed.Contains(userAnswerTrimmed)
+
+let calculateScore (userAnswers: UserAnswer list) (questions: Question list) =
+    userAnswers
+    |> List.fold (fun acc userAnswer ->
+        match questions |> List.tryFind (fun q -> q.Id = userAnswer.QuestionId) with
+        | Some question ->
+            if question.Options.IsEmpty then
+                // Written question
+                if evaluateWrittenAnswer userAnswer.Answer question.CorrectAnswer then acc + 1 else acc
+            else
+                // Multiple-choice question
+                if evaluateMultipleChoice userAnswer.Answer question.CorrectAnswer then acc + 1 else acc
+        | None -> acc
+    ) 0
