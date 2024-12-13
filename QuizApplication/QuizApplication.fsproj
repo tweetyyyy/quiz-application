@@ -1,13 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿    <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms> 
-  </PropertyGroup>
+      <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+	      <UseWindowsForms>true</UseWindowsForms>
+      </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="Program.fs" />
-  </ItemGroup>
+      <ItemGroup>
+        <Compile Include="Program.fs" />
+      </ItemGroup>
 
-</Project>
+      <ItemGroup>
+        <PackageReference Include="System.Reactive.Windows.Forms" Version="6.0.1" />
+      </ItemGroup>
+
+    </Project>

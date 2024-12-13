@@ -1,14 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1FM+cm382cM=",
+  "dgSpecHash": "UGdIMoii6p2/NxpAoSNhyHdpcGmPRI2QntvCVLnBHwHwbJ2wo9gHgM71O8GmjADhJOlD+7kfDeqZafwk/hytpg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Rana Ashraf\\QuizApplication\\QuizApplication.fsproj",
+  "projectFilePath": "C:\\Users\\hagar\\OneDrive\\Desktop\\New folder\\quiz-application\\QuizApplication\\QuizApplication.fsproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Rana Ashraf\\.nuget\\packages\\fsharp.core\\9.0.100-beta.24422.2\\fsharp.core.9.0.100-beta.24422.2.nupkg.sha512",
-    "C:\\Users\\Rana Ashraf\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.33\\microsoft.netcore.app.ref.6.0.33.nupkg.sha512",
-    "C:\\Users\\Rana Ashraf\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.33\\microsoft.windowsdesktop.app.ref.6.0.33.nupkg.sha512",
-    "C:\\Users\\Rana Ashraf\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.33\\microsoft.aspnetcore.app.ref.6.0.33.nupkg.sha512",
-    "C:\\Users\\Rana Ashraf\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.33\\microsoft.netcore.app.host.win-x64.6.0.33.nupkg.sha512"
+    "C:\\Users\\hagar\\.nuget\\packages\\fsharp.core\\7.0.200\\fsharp.core.7.0.200.nupkg.sha512"
   ],
   "logs": []
 }

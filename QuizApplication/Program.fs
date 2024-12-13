@@ -1,12 +1,10 @@
-﻿module Program.fs
-open System 
+﻿open System
+open System.Windows.Forms
+open System.Drawing
 
 
-let evaluateAnswer (userAnswer: string) (correctAnswer: string) =
-    userAnswer.Trim().Equals(correctAnswer, StringComparison.OrdinalIgnoreCase)
-
+// Stopwords and punctuation for text processing
 let stopWords = Set.ofList ["the"; "a"; "an"; "and"; "of"; "to"; "in"; "for"; "on"; "at"; "by"; "with"]
-
 let punctuationChars = Set.ofList ['.'; ','; ';'; ':'; '!'; '?'; '\''; '"'; '('; ')'; '['; ']'; '{'; '}'; '-'; '_']
 
 let removePunctuation (text: string) =
@@ -19,13 +17,15 @@ let stem (word: string) =
     else word
 
 let tokenizeAndStem (text: string) =
+    // ziading the tamer = ["greatest", "common"]
     text
     |> removePunctuation
-    |> fun cleanedText ->
+    |> fun cleanedText -> 
         cleanedText.ToLower().Split([| ' '; '\n'; '\t' |], StringSplitOptions.RemoveEmptyEntries)
     |> Array.filter (fun word -> not (stopWords.Contains(word)))
     |> Array.map stem
     |> Set.ofArray
+
 
 let isAnswerCorrect (userAnswer: string) (correctAnswer: string) =
     let userTokens = tokenizeAndStem userAnswer
@@ -34,51 +34,36 @@ let isAnswerCorrect (userAnswer: string) (correctAnswer: string) =
     let intersection = Set.intersect userTokens correctTokens
     let similarity = float intersection.Count / float correctTokens.Count
 
-    similarity >= 0.7 
+    similarity >= 0.7 // Threshold: at least 70% match
 
-let calculateScore (userAnswers: UserAnswer list) (questions: Question list) =
-    userAnswers
-    |> List.fold (fun acc userAnswer ->
-        match questions |> List.tryFind (fun q -> q.Id = userAnswer.QuestionId) with
-        | Some question ->
-            if question.Options.IsEmpty then
-                if isAnswerCorrect userAnswer.Answer question.CorrectAnswer then acc + 1 else acc
-            else
-                if evaluateAnswer userAnswer.Answer question.CorrectAnswer then acc + 1 else acc
-        | None -> acc
-    ) 0
+// Mutable variables for tracking state
+let mutable currentQuestionIndex = 0
+let mutable userAnswers = []
 
-let askQuestions (questions: Question list) =
-    let mutable userAnswers = []
+let createQuizForm () =
+    let form = new Form(Text = "F# Quiz", Width = 600, Height = 500)
 
-    for question in questions do
-        printfn "\nQuestion %d: %s" question.Id question.Text
+    // UI Components
+    let questionLabel = new Label(Text = "", AutoSize = true, Location = Point(20, 20), MaximumSize = Size(550, 0))
+    let optionsPanel = new Panel(Location = Point(20, 60), Width = 550, Height = 200, AutoScroll = true)
+    let submitButton = new Button(Text = "Submit", Location = Point(20, 280))
+    let resultLabel = new Label(Text = "", AutoSize = true, Location = Point(20, 320), ForeColor = Color.Blue)
 
-        match question.Options with
-        | [] -> 
-            printf "Your answer: "
-            let answer = Console.ReadLine().Trim().ToLower()
-            userAnswers <- { QuestionId = question.Id; Answer = answer } :: userAnswers
-        | options ->
-            for i, option in List.indexed options do
-                printfn "%d. %s" (i + 1) option
-            printf "Your answer (choose an option number): "
+    // Show current question
+    let showQuestion () =
+        let question = questions.[currentQuestionIndex]
+        questionLabel.Text <- question.Text
+        optionsPanel.Controls.Clear()
 
-            let mutable validAnswer = false
-            while not validAnswer do
-                match Int32.TryParse(Console.ReadLine()) with
-                | (true, index) when index > 0 && index <= options.Length ->
-                    let selectedOption = options.[index - 1]
-                    userAnswers <- { QuestionId = question.Id; Answer = selectedOption } :: userAnswers
-                    validAnswer <- true
-                | _ ->
-                    printf "Invalid input. Please enter a number between 1 and %d: " options.Length
+        if question.Options.IsEmpty then
+            let textBox = new TextBox(Width = 500)
+            optionsPanel.Controls.Add(textBox)
+        else
+            for i, option in List.indexed question.Options do
+                let radioButton = new RadioButton(Text = option, AutoSize = true, Location = Point(0, i * 30))
+                optionsPanel.Controls.Add(radioButton)
 
-    userAnswers
-
-let runQuiz () =
-    let userAnswers = askQuestions questions
-    let score = calculateScore userAnswers questions
-    printfn "\nQuiz finished! Your final score is %d out of %d." score questions.Length
-
-runQuiz ()
+[<EntryPoint>]
+let main _ =
+    Application.Run(createQuizForm())
+    0

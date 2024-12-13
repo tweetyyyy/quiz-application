@@ -25,3 +25,9 @@ C:\Users\Rana Ashraf\QuizApplication\obj\Debug\net6.0-windows\QuizAppl.36C31C15.
 C:\Users\Rana Ashraf\QuizApplication\obj\Debug\net6.0-windows\QuizApplication.dll
 C:\Users\Rana Ashraf\QuizApplication\obj\Debug\net6.0-windows\QuizApplication.pdb
 C:\Users\Rana Ashraf\QuizApplication\obj\Debug\net6.0-windows\QuizApplication.genruntimeconfig.cache
+C:\Users\hagar\OneDrive\Desktop\New folder\quiz-application\QuizApplication\obj\Debug\net6.0-windows\QuizApplication.fsproj.AssemblyReference.cache
+C:\Users\hagar\OneDrive\Desktop\New folder\quiz-application\QuizApplication\obj\Debug\net6.0-windows\QuizApplication.AssemblyInfoInputs.cache
+C:\Users\hagar\OneDrive\Desktop\New folder\quiz-application\QuizApplication\obj\Debug\net6.0-windows\QuizApplication.AssemblyInfo.fs
+C:\Users\hagar\OneDrive\Desktop\New folder\quiz-application\QuizApplication\obj\Debug\net6.0-windows\QuizApplication.fsproj.CoreCompileInputs.cache
+C:\Users\hagar\OneDrive\Desktop\New folder\quiz-application\QuizApplication\obj\Debug\net6.0-windows\QuizApplication.dll
+C:\Users\hagar\OneDrive\Desktop\New folder\quiz-application\QuizApplication\obj\Debug\net6.0-windows\QuizApplication.pdb
