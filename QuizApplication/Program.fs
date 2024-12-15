@@ -62,6 +62,48 @@ let createQuizForm () =
             for i, option in List.indexed question.Options do
                 let radioButton = new RadioButton(Text = option, AutoSize = true, Location = Point(0, i * 30))
                 optionsPanel.Controls.Add(radioButton)
+    // Handle submission
+    let handleSubmission _ =
+        let question = questions.[currentQuestionIndex]
+        let userAnswer =
+            if question.Options.IsEmpty then
+                (optionsPanel.Controls.[0] :?> TextBox).Text
+            else
+                optionsPanel.Controls
+                |> Seq.cast<RadioButton>
+                |> Seq.tryFind (fun rb -> rb.Checked)
+                |> Option.map (fun rb -> rb.Text)
+                |> Option.defaultValue ""
+
+        userAnswers <- (question.Id, userAnswer) :: userAnswers
+        currentQuestionIndex <- currentQuestionIndex + 1
+
+        if currentQuestionIndex < questions.Length then
+            showQuestion()
+        else
+            let score =
+                userAnswers
+                |> List.fold (fun acc (qid, answer) ->
+                    let question = questions |> List.find (fun q -> q.Id = qid)
+                    if question.Options.IsEmpty then
+                        if isAnswerCorrect answer question.CorrectAnswer then acc + 1 else acc
+                    else
+                        if answer = question.CorrectAnswer then acc + 1 else acc
+
+                ) 0
+            resultLabel.Text <- sprintf "Quiz finished! Your score: %d/%d" score questions.Length
+            submitButton.Enabled <- false
+
+    submitButton.Click.Add handleSubmission
+
+    // Add components to the form
+    form.Controls.Add(questionLabel)
+    form.Controls.Add(optionsPanel)
+    form.Controls.Add(submitButton)
+    form.Controls.Add(resultLabel)
+
+    showQuestion()
+    form
 
 [<EntryPoint>]
 let main _ =
