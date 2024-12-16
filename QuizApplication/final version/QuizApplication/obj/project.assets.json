@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
-      "FSharp.Core/9.0.100": {
+      "FSharp.Core/8.0.403": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/FSharp.Core.dll": {
@@ -101,15 +101,15 @@
     }
   },
   "libraries": {
-    "FSharp.Core/9.0.100": {
-      "sha512": "ye8yagHGsH08H2Twno5GRWkSbrMtxK/SWiHuPcF+3nODpW65/VJ8RO0aWxp8n9+KQbmahg90wAEL3TEXjF0r6A==",
+    "FSharp.Core/8.0.403": {
+      "sha512": "t1Pvv2++3zMQKKNuiQc1Lz4TCdaBajgG4mLhOE8AoFzborHQ/JbjIaJr6Mrq8m2z15KLu4r6Qz7E3oeACpljTg==",
       "type": "package",
-      "path": "fsharp.core/9.0.100",
+      "path": "fsharp.core/8.0.403",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "fsharp.core.9.0.100.nupkg.sha512",
+        "fsharp.core.8.0.403.nupkg.sha512",
         "fsharp.core.nuspec",
         "lib/netstandard2.0/FSharp.Core.dll",
         "lib/netstandard2.0/FSharp.Core.xml",
@@ -226,29 +226,24 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
-      "FSharp.Core >= 9.0.100",
+      "FSharp.Core >= 8.0.403",
       "System.Reactive.Windows.Forms >= 6.0.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rana Ashraf\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Mostafa-PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rana Ashraf\\Desktop\\New folder (3)\\quiz-application\\QuizApplication\\final version\\QuizApplication\\QuizApplication.fsproj",
+      "projectUniqueName": "C:\\Users\\Mostafa-PC\\quiz-application\\QuizApplication\\final version\\QuizApplication\\QuizApplication.fsproj",
       "projectName": "QuizApplication",
-      "projectPath": "C:\\Users\\Rana Ashraf\\Desktop\\New folder (3)\\quiz-application\\QuizApplication\\final version\\QuizApplication\\QuizApplication.fsproj",
-      "packagesPath": "C:\\Users\\Rana Ashraf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rana Ashraf\\Desktop\\New folder (3)\\quiz-application\\QuizApplication\\final version\\QuizApplication\\obj\\",
+      "projectPath": "C:\\Users\\Mostafa-PC\\quiz-application\\QuizApplication\\final version\\QuizApplication\\QuizApplication.fsproj",
+      "packagesPath": "C:\\Users\\Mostafa-PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mostafa-PC\\quiz-application\\QuizApplication\\final version\\QuizApplication\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Rana Ashraf\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Mostafa-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -256,7 +251,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\9.0.101\\FSharp\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\8.0.404\\FSharp\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -269,8 +264,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -279,7 +273,7 @@
           "FSharp.Core": {
             "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
             "target": "Package",
-            "version": "[9.0.100, )",
+            "version": "[8.0.403, )",
             "generatePathProperty": true
           },
           "System.Reactive.Windows.Forms": {
@@ -307,7 +301,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

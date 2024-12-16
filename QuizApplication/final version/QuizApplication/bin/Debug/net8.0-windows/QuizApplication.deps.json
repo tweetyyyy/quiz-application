@@ -8,18 +8,18 @@
     ".NETCoreApp,Version=v8.0": {
       "QuizApplication/1.0.0": {
         "dependencies": {
-          "FSharp.Core": "9.0.200-beta.24561.2",
+          "FSharp.Core": "8.0.403",
           "System.Reactive.Windows.Forms": "6.0.1"
         },
         "runtime": {
           "QuizApplication.dll": {}
         }
       },
-      "FSharp.Core/9.0.200-beta.24561.2": {
+      "FSharp.Core/8.0.403": {
         "runtime": {
           "lib/netstandard2.1/FSharp.Core.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.2.24.56102"
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.4.324.50901"
           }
         },
         "resources": {
@@ -93,12 +93,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "FSharp.Core/9.0.200-beta.24561.2": {
+    "FSharp.Core/8.0.403": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qunX1r6mw9kYrGq7fbE8doAdLlkchxONkisXd7ikdEhLnwjITp5f21homwdA3XdU5lxhE2hdAcictFaViTmo5A==",
-      "path": "fsharp.core/9.0.200-beta.24561.2",
-      "hashPath": "fsharp.core.9.0.200-beta.24561.2.nupkg.sha512"
+      "sha512": "sha512-t1Pvv2++3zMQKKNuiQc1Lz4TCdaBajgG4mLhOE8AoFzborHQ/JbjIaJr6Mrq8m2z15KLu4r6Qz7E3oeACpljTg==",
+      "path": "fsharp.core/8.0.403",
+      "hashPath": "fsharp.core.8.0.403.nupkg.sha512"
     },
     "System.Reactive/6.0.1": {
       "type": "package",
